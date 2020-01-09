@@ -1,0 +1,57 @@
+---
+version: 1
+kind: component
+meta:
+  name: github
+  brief: Encapsulates operations with Github
+# requires: [ghub]
+parameters:
+- name: dns.domain
+  env: DOMAIN_NAME
+- name: component.kaniko
+  parameters:
+  - name: name
+    value: kaniko
+    env: COMPONENT_NAME
+  - name: namespace
+    value: default
+    env: NAMESPACE
+  - name: image
+    value: gcr.io/kaniko-project/executor:debug
+  - name: destination
+    brief: Target image name and destination for docker push
+    env: DOCKER_IMAGE
+  - name: dockerfile
+    value: Dockerfile
+  - name: contextDir
+    empty: allow
+  - name: build.timeout
+    value: 900
+    env: TIMEOUT
+- name: component.pullSecret
+  parameters:
+  - name: name
+    env: PULL_SECRET_NAME
+  - name: namespace
+    env: PULL_SECRET_NAMESPACE
+    empty: allow
+- name: component.git
+  parameters:
+  - name: remote
+  - name: branch
+    value: master
+  - name: username
+    empty: allow
+  - name: password
+    empty: allow
+  - name: kind
+    value: github
+    env: GIT_KIND
+  - name: secretName
+    value: kaniko-git
+
+outputs: []
+
+templates:
+  files:
+  - "*.template"
