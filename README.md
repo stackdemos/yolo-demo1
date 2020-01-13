@@ -1,17 +1,21 @@
-# Github Issue Summarization
-This is an end-to-end pre-integrated machine learning applicaiton. 
+# Object Detection with YOLOv3
+This is an end-to-end pre-integrated machine learning pipeline for object detection.
 * Training with [Keras](http://keras.io)
-* Serving with [Seldon](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/README.html)
+* Real-time object detection with OpenCV and Keras
 * Deployment on Kubernetes with [Flask](http://flask.pocoo.org)
 
-Upon successful completion of these stages, user will get a web application that is able to predict 
+Upon successful completion of these stages, user will get a web application that is able to predict
 Github issue title by reading it's description.
+
 
 ## Introduction
 
 ### Problem
-Given a dataset of the github issueses used. Where every issue has been processed into a vector. Then it has been then used for 
-[Sequence to Sequence](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf) model traing.
+Retrain YOLO3 model to detect new objects. It is based on "keras-yolo3: Training and Detecting Objects with YOLO3"
+[keras-yolo3](https://github.com/experiencor/keras-yolo3) by Huynh Ngoc Anh.
+
+Object detection is a computer vision task that involves both localizing one or more objects within an image and classifying each object in the image. This project demonstrates YOLOv3 models, including object detection, transfer learning, and training new models from scratch. We will use a pre-trained model to perform object detection on an unseen photograph.  
+
 
 ### Technologies used:
 * Docker registry
@@ -20,4 +24,3 @@ Given a dataset of the github issueses used. Where every issue has been processe
 * Kubeflow Pipelines
 * Keras
 * Minio
-
